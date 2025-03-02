@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -33,15 +33,22 @@ function App() {
   //     return {...prev, color: 'Blue'}
   //   })
   // }
-  const [count, setCount] = useState(0);
-  const increaseCount = () => {
+  // const [count, setCount] = useState(0);
+  // const increaseCount = () => {
     // setCount(count + 1);
 
-    setCount(count=> count+ 1);
-    setCount(count=> count + 1);
-    setCount(count=> count + 1);
-    setCount(count=> count+ 1);
-  }
+    // setCount(count=> count+ 1);
+    // setCount(count=> count + 1);
+    // setCount(count=> count + 1);
+    // setCount(count=> count+ 1);
+  // }
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState('saphaa');
+  useEffect(() => {
+    setTimeout(() => {
+      setCount( count => count + 1);
+    }, 2000);
+  } ,[count, name]);
   return (
     <>
 
@@ -50,8 +57,10 @@ function App() {
        {/* <h1>My { car.brand}</h1>
        <h2>It is a{car.color} { car.model} from {car.year}</h2>
        <button onClick={changeColor}>Blue</button> */}
-       <h1>Count: {count}</h1>
-       <button onClick={increaseCount}> Increase</button>
+       {/* <h1>Count: {count}</h1>
+       <button onClick={increaseCount}> Increase</button> */}
+        <h1>I've rendered {count} times!</h1>
+       
     </>
   )
 }
